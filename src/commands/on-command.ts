@@ -1,3 +1,4 @@
+import ip from 'ip';
 import publicIp from 'public-ip';
 import { Message, TextChannel } from 'discord.js';
 import { ICommand } from '../models/command.model';
@@ -36,6 +37,7 @@ export class OnCommand implements ICommand {
 
   private printServerInfo = async (channel: TextChannel) => {
     channel.send(`No easy URL yet!\nIP to go to is\`${(await publicIp.v4())}:${scripts.valheim.port}\`.`);
+    channel.send(`Local address is ${ip.address()}`);
     channel.send(`Password: \`${scripts.valheim.password}\``);
   }
 }
