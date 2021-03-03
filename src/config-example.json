@@ -3,7 +3,9 @@
   "token": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
   "scripts": {
     "valheim": {
-      "command": "start_headless_server.bat"
+      "command": "start_headless_server.bat",
+      "port": "1111",
+      "password": "password"
     }
   }
 }
