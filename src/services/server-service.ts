@@ -1,6 +1,5 @@
-import { ChildProcess, exec, execFile, spawn } from "child_process";
+import { ChildProcess, exec } from "child_process";
 import { TextChannel, VoiceChannel } from "discord.js";
-import { resolve } from "path";
 
 export class ServerService {
   readonly serverName: string;
@@ -40,7 +39,7 @@ export class ServerService {
   }
 
   private turnOnServer() {
-    this.childProcess = spawn('cmd.exe', ['/c', this.scriptCommand])
+    this.childProcess = exec(this.scriptCommand)
     this.childProcess?.stderr?.on('data', (e) => console.error('ERROR', e.toString()));
     this.childProcess?.stdout?.on('data', (d) => console.log('DATA', d.toString()));
     this.childProcess.on('exit', () => console.log('Closed!'));
